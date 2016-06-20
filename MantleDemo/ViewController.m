@@ -92,6 +92,14 @@
                                               },
             
                                       @"new":@1,
+                                      @"users":@[@{
+                                                     @"login":@"octocat",
+                                                     @"id":@1
+                                                     },
+                                                 @{
+                                                     @"login":@"octocat",
+                                                     @"id":@1
+                                                     },],
                                       };
     
 //    GitIssueModel *issueModel = modelDictionary;

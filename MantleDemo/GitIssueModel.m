@@ -33,7 +33,7 @@
              @"body":@"body",
              @"isnew":@"new",
              @"users":@"users",
-             
+             @"retrievedAt":@"retrievedAt"
              };
 }
 
@@ -80,7 +80,13 @@
         return [self.dateFormatter stringFromDate:date];
     }];
 }
-
++ (NSValueTransformer *)retrievedAtJSONTransformer {
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *dateString, BOOL *success, NSError *__autoreleasing *error) {
+        return [self.dateFormatter dateFromString:dateString];
+    } reverseBlock:^id(NSDate *date, BOOL *success, NSError *__autoreleasing *error) {
+        return [self.dateFormatter stringFromDate:date];
+    }];
+}
 //默认值
 - (instancetype)initWithDictionary:(NSDictionary *)dictionaryValue error:(NSError **)error {
     self = [super initWithDictionary:dictionaryValue error:error];
